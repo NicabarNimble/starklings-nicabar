@@ -6,6 +6,7 @@
 use option::OptionTrait;
 use array::ArrayTrait;
 
+
 #[derive(Drop)]
 struct Student {
     name: felt252,
@@ -40,8 +41,12 @@ fn display_grades(student: @Student, index: usize) {
     // TODO: Modify the following lines so that if there is a grade for the course, it is printed.
     //       Otherwise, print "No grade".
     // 
+    if course.is_some() {
     println!("grade is {}", course.unwrap());
     display_grades(student, index + 1);
+} else if course.is_none(){
+    println!("No grade");
+}
 }
 
 
